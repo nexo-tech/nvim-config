@@ -33,9 +33,9 @@
       :swift { :lsp "sourcekit" :formatter "swiftformat" }
       :ocaml { :lsp "ocamllsp" :formatter "ocamlformat" }
       :python { :lsp "pyright" :formatter "black" :tab { :width 4 :expand true } }
-      :typescript { :lsp "tsserver" :formatter "biome" :tab {:width 4 :expand false } }
-      :mojo { :formatter "mojo_format" :lsp "mojo-lsp-server" :tab { :width 4 :expand true } }
-      :javascript { :lsp "tsserver" :formatter "biome" }
+      :typescript { :lsp "ts_ls" :formatter "biome" :tab {:width 4 :expand false } }
+      :mojo { :formatter "mojo_format" :lsp "mojo" :tab { :width 4 :expand true } }
+      :javascript { :lsp "ts_ls" :formatter "biome" }
       :go { :lsp "gopls" :formatter ["goimports" "gofmt"] }
       :rust {} }
   :features 
