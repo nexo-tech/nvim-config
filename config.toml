@@ -1,5 +1,5 @@
 [editor]
-theme = "ayu_dark"
+theme = "helix"
 
 [editor.whitespace]
 render = "none"
