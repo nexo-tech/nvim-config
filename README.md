@@ -35,6 +35,8 @@ A simple Neovim configuration demonstrating the power of `autoconf.nvim` and `th
 - **Neovim 0.9.0+** (latest stable recommended)
 - **Git** for installation
 - **Node.js** (for LSP servers)
+- [autoconf.nvim](https://github.com/nexo-tech/autoconf.nvim)
+- [themekit.nvim](https://github.com/nexo-tech/themekit.nvim)
 
 ### Installation
 
