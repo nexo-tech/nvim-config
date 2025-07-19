@@ -1,3 +1,10 @@
+[editor]
+theme = "ayu_dark"
 
 [editor.whitespace]
-render = "all"
+render = "none"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "block"
+select = "block"
