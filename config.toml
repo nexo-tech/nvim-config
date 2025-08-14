@@ -1,5 +1,6 @@
 [editor]
 theme = "helix"
+mouse = true
 
 [editor.whitespace]
 render = "none"
@@ -11,3 +12,4 @@ select = "block"
 
 [keys.normal.space]
 t = "open_theme_picker"
+
