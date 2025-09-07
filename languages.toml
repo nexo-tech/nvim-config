@@ -48,3 +48,5 @@ formatter = ["goimports", "gofmt"]
 
 [[language]]
 name = "rust"
+lsp = "rust_analyzer"
+formatter = "rustfmt"
