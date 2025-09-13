@@ -1,0 +1,48 @@
+# Base theme for testing inheritance
+[palette]
+black = "#1a1b26"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#c0caf5"
+gray = "#565a6e"
+dark_bg = "#16161e"
+
+# UI Elements
+"ui.background" = { fg = "white", bg = "black" }
+"ui.statusline" = { fg = "white", bg = "dark_bg" }
+"ui.statusline.inactive" = { fg = "gray", bg = "dark_bg" }
+"ui.popup" = { fg = "white", bg = "black" }
+"ui.menu" = { fg = "white", bg = "black" }
+"ui.menu.selected" = { fg = "black", bg = "blue" }
+"ui.selection" = { bg = "#515c7e" }
+"ui.cursor" = { bg = "white" }
+"ui.cursor.insert" = { bg = "magenta" }
+"ui.cursor.select" = { bg = "blue" }
+"ui.linenr" = { fg = "gray" }
+"ui.linenr.selected" = { fg = "white" }
+
+# Syntax highlighting
+keyword = "magenta"
+"keyword.directive" = "cyan"
+function = "blue"
+"function.builtin" = "#ff9e64"
+type = "#2ac3de"
+"type.builtin" = "#ff9e64"
+string = "green"
+comment = "gray"
+variable = "white"
+"variable.parameter" = "magenta"
+constant = "#ff9e64"
+"constant.builtin" = "#ff9e64"
+operator = "#89ddff"
+punctuation = "white"
+
+# Diagnostics
+"diagnostic.error" = { fg = "red" }
+"diagnostic.warning" = { fg = "yellow" }
+"diagnostic.info" = { fg = "blue" }
+"diagnostic.hint" = { fg = "gray" }

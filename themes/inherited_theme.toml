@@ -1,0 +1,16 @@
+# Theme that inherits from base_theme with overrides
+inherits = "base_theme"
+
+# Override specific theme keys
+keyword = { fg = "gold" }
+string = { fg = "#00ff00", modifiers = ["bold"] }
+"ui.background" = { fg = "#e0e0e0", bg = "#0a0a12" }
+"ui.cursor" = { bg = "#ffcc00" }
+
+# Override and add colors in the palette
+[palette]
+# Override existing color
+red = "#ff0000"
+# Add new color
+gold = "#ffd700"
+berry = "#2A2A4D"
