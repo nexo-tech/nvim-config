@@ -1,5 +1,5 @@
 [editor]
-theme = "helix"
+theme = "github_light"
 
 [editor.whitespace]
 render = "none"
@@ -11,3 +11,4 @@ select = "block"
 
 [keys.normal.space]
 t = "open_theme_picker"
+
