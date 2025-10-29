@@ -1,0 +1,10 @@
+# Theme that inherits from inherited_theme (multi-level inheritance)
+inherits = "inherited_theme"
+
+# Override more elements
+function = { fg = "berry", modifiers = ["italic"] }
+"ui.statusline" = { fg = "gold", bg = "berry" }
+
+# Add more palette colors
+[palette]
+ocean = "#006994"

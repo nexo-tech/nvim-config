@@ -1,5 +1,6 @@
 [editor]
 theme = "github_light"
+mouse = true
 
 [editor.whitespace]
 render = "none"

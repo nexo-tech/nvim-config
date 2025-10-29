@@ -28,7 +28,7 @@ name = "python"
 name = "typescript"
 lsp = "ts_ls"
 formatter = "biome"
-tab = { width = 4, expand = false }
+tab = { width = 2, expand = false }
 
 [[language]]
 name = "mojo"
@@ -48,3 +48,5 @@ formatter = ["goimports", "gofmt"]
 
 [[language]]
 name = "rust"
+lsp = "rust_analyzer"
+formatter = "rustfmt"
