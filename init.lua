@@ -7,3 +7,4 @@ autoconf.define_resolver("editor.theme", {
 })
 autoconf.define_command_resolver("open_theme_picker",
     function(_) return vim.cmd("ThemePicker") end)
+

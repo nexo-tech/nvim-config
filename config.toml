@@ -1,5 +1,5 @@
 [editor]
-theme = "helix"
+theme = "github_light"
 mouse = true
 
 [editor.whitespace]
