@@ -53,6 +53,6 @@ formatter = "rustfmt"
 
 [[language]]
 name = "fsharp"
-lsp = { server = "fsautocomplete", cmd = ["dotnet", "fsautocomplete", "--background-service-enabled"] }
+lsp = { server = "fsautocomplete", cmd = ["fsautocomplete", "--background-service-enabled"] }
 formatter = "fantomas"
 

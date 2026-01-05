@@ -66,6 +66,65 @@ A simple Neovim configuration demonstrating the power of `autoconf.nvim` and `th
    nvim
    ```
 
+### Installation via Nix Flake (Home Manager)
+
+This configuration is available as a Nix flake with a Home Manager module. It automatically fetches the latest commits of `autoconf.nvim` and `themekit.nvim`.
+
+1. **Add to your flake inputs** (`flake.nix`):
+
+   ```nix
+   {
+     inputs = {
+       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+       home-manager.url = "github:nix-community/home-manager";
+
+       nvimconf = {
+         url = "github:nexo-tech/nvim-config";
+         inputs.nixpkgs.follows = "nixpkgs";
+       };
+     };
+
+     outputs = { self, nixpkgs, home-manager, nvimconf, ... }: {
+       # Your configuration here
+     };
+   }
+   ```
+
+2. **Import the Home Manager module**:
+
+   ```nix
+   # In your home.nix or home-manager configuration
+   { inputs, ... }:
+   {
+     imports = [
+       inputs.nvimconf.homeManagerModules.default
+     ];
+
+     programs.nvimconf = {
+       enable = true;
+       theme = "catppuccin_mocha";  # Optional: override default theme
+       extraConfig = ''
+         -- Additional Lua configuration
+         vim.opt.relativenumber = true
+       '';
+     };
+   }
+   ```
+
+3. **Available Options**:
+
+   | Option                     | Type    | Default          | Description                          |
+   | -------------------------- | ------- | ---------------- | ------------------------------------ |
+   | `programs.nvimconf.enable` | boolean | `false`          | Enable the nvimconf configuration    |
+   | `programs.nvimconf.theme`  | string  | `"github_light"` | Default theme to use                 |
+   | `programs.nvimconf.extraConfig` | string | `""` | Extra Lua config to append to init.lua |
+   | `programs.nvimconf.package` | package | `pkgs.neovim-unwrapped` | Neovim package to use |
+
+4. **Build and activate**:
+   ```bash
+   home-manager switch --flake .#your-config
+   ```
+
 ## 🎯 Usage
 
 ### Basic Commands
