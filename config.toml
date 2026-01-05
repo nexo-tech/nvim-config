@@ -1,6 +1,8 @@
 [editor]
-theme = "github_light"
+theme = "github_light_high_contrast"
 mouse = true
+cursorline = false
+cursorlineopt = "number"  # highlight both number and
 
 [editor.whitespace]
 render = "none"
