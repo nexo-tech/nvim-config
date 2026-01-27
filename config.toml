@@ -1,5 +1,5 @@
 [editor]
-theme = "github_light_high_contrast"
+theme = "catppuccin_macchiato"
 mouse = true
 cursorline = false
 cursorlineopt = "number"  # highlight both number and

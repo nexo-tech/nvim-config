@@ -17,7 +17,8 @@
 
   outputs = { self, nixpkgs, autoconf-nvim, themekit-nvim, ... }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      supportedSystems =
+        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # Configuration files from this repo
@@ -29,16 +30,14 @@
 
       # Theme files directory
       themesDir = ./themes;
-    in
-    {
+    in {
       # Home Manager module
       homeManagerModules.default = { config, lib, pkgs, ... }:
-        let
-          cfg = config.programs.nvimconf;
-        in
-        {
+        let cfg = config.programs.nvimconf;
+        in {
           options.programs.nvimconf = {
-            enable = lib.mkEnableOption "nvimconf - Neovim configuration with autoconf.nvim and themekit.nvim";
+            enable = lib.mkEnableOption
+              "nvimconf - Neovim configuration with autoconf.nvim and themekit.nvim";
 
             package = lib.mkOption {
               type = lib.types.package;
@@ -55,7 +54,7 @@
 
             theme = lib.mkOption {
               type = lib.types.str;
-              default = "github_light";
+              default = "catppuccin_macchiato";
               description = "Default theme to use";
             };
           };
@@ -66,9 +65,10 @@
               package = cfg.package;
 
               # Ensure Neovim can find our plugins and config
-              extraPackages = with pkgs; [
-                # Add any runtime dependencies here
-              ];
+              extraPackages = with pkgs;
+                [
+                  # Add any runtime dependencies here
+                ];
             };
 
             # Create the nvim configuration directory structure
@@ -82,12 +82,52 @@
               # TOML configuration files
               "nvim/config.toml".text = let
                 originalConfig = builtins.readFile ./config.toml;
-                # Replace theme in config if user specified a different one
-                modifiedConfig = builtins.replaceStrings
-                  [ ''theme = "github_light"'' ]
-                  [ ''theme = "${cfg.theme}"'' ]
-                  originalConfig;
-              in modifiedConfig;
+
+                themeLine = ''theme = "${cfg.theme}"'';
+
+                replaceEditorTheme = contents:
+                  let
+                    lines = lib.splitString "\n" contents;
+
+                    step = state: line:
+                      let
+                        inEditor = state.inEditor || (line == "[editor]");
+                        leavingEditor = inEditor && (lib.hasPrefix "[" line)
+                          && (line != "[editor]");
+                        shouldReplace = inEditor && (!leavingEditor)
+                          && (builtins.match ''^theme\s*=\s*".*"$'' line
+                            != null);
+
+                        nextLines = state.lines
+                          ++ [ (if shouldReplace then themeLine else line) ];
+                      in {
+                        lines = nextLines;
+                        inEditor = inEditor && !leavingEditor;
+                        replaced = state.replaced || shouldReplace;
+                      };
+
+                    result = builtins.foldl' step {
+                      lines = [ ];
+                      inEditor = false;
+                      replaced = false;
+                    } lines;
+
+                    insertIfMissing = ls:
+                      let
+                        idx =
+                          lib.lists.findFirstIndex (x: x == "[editor]") null ls;
+                      in if idx == null then
+                        ls
+                      else
+                        (lib.take (idx + 1) ls) ++ [ themeLine ]
+                        ++ (lib.drop (idx + 1) ls);
+
+                    finalLines = if result.replaced then
+                      result.lines
+                    else
+                      insertIfMissing result.lines;
+                  in lib.concatStringsSep "\n" finalLines;
+              in replaceEditorTheme originalConfig;
 
               "nvim/languages.toml".source = ./languages.toml;
 
@@ -132,23 +172,17 @@
               cp -r ${themekit-nvim} $out/pack/plugins/start/themekit.nvim
             '';
           };
-        in
-        {
+        in {
           default = nvimConfig;
           nvimconf = nvimConfig;
-        }
-      );
+        });
 
       # Development shell
       devShells = forAllSystems (system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
+        let pkgs = nixpkgs.legacyPackages.${system};
+        in {
           default = pkgs.mkShell {
-            packages = with pkgs; [
-              neovim
-            ];
+            packages = with pkgs; [ neovim ];
 
             shellHook = ''
               echo "nvimconf development shell"
@@ -156,7 +190,6 @@
               export XDG_CONFIG_HOME="$(pwd)"
             '';
           };
-        }
-      );
+        });
     };
 }
