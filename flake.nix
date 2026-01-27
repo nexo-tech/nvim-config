@@ -116,7 +116,7 @@
                         leavingEditor = inEditor && (lib.hasPrefix "[" line)
                           && (line != "[editor]");
                         shouldReplace = inEditor && (!leavingEditor)
-                          && (builtins.match ''^theme\s*=\s*".*"$'' line
+                          && (builtins.match ''^theme[ 	]*=[ 	]*".*"$'' line
                             != null);
 
                         nextLines = state.lines
