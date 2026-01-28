@@ -1,5 +1,5 @@
 [editor]
-theme = "catppuccin_macchiato"
+theme = "opencode_oc1_dark"
 mouse = true
 cursorline = false
 cursorlineopt = "number"  # highlight both number and

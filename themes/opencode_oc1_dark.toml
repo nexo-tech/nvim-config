@@ -1,0 +1,162 @@
+# OpenCode OC-1 Dark Theme for Neovim (themekit.nvim - Helix format)
+
+# Syntax highlighting
+"attribute" = "type"
+"type" = "type"
+"type.enum.variant" = "teal"
+"constructor" = "constant"
+"constant" = "constant"
+"constant.character" = "teal"
+"constant.character.escape" = "pink"
+"string" = "string"
+"string.regexp" = "pink"
+"string.special" = "blue"
+"string.special.symbol" = "red"
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"variable" = "text"
+"variable.parameter" = { fg = "primitive", modifiers = ["italic"] }
+"variable.builtin" = "red"
+"variable.other.member" = "blue"
+"label" = "sapphire"
+"punctuation" = "overlay2"
+"punctuation.special" = "sky"
+"keyword" = "info"
+"keyword.control.conditional" = { fg = "info", modifiers = ["italic"] }
+"operator" = "constant"
+"function" = "interactive"
+"function.macro" = "info"
+"tag" = "interactive"
+"namespace" = { fg = "type", modifiers = ["italic"] }
+"special" = "interactive"
+
+# Markup
+"markup.heading.1" = "error"
+"markup.heading.2" = "primary"
+"markup.heading.3" = "warning"
+"markup.heading.4" = "success"
+"markup.heading.5" = "sapphire"
+"markup.heading.6" = "lavender"
+"markup.list" = "teal"
+"markup.list.unchecked" = "overlay2"
+"markup.list.checked" = "success"
+"markup.bold" = { fg = "error", modifiers = ["bold"] }
+"markup.italic" = { fg = "error", modifiers = ["italic"] }
+"markup.link.url" = { fg = "interactive", modifiers = ["italic", "underlined"] }
+"markup.link.text" = "lavender"
+"markup.link.label" = "sapphire"
+"markup.raw" = "success"
+"markup.quote" = "pink"
+
+# Diff
+"diff.plus" = "success"
+"diff.minus" = "error"
+"diff.delta" = "interactive"
+
+# User Interface
+"ui.background" = { fg = "text", bg = "base" }
+"ui.linenr" = { fg = "surface1" }
+"ui.linenr.selected" = { fg = "info" }
+"ui.statusline" = { fg = "subtext1", bg = "mantle" }
+"ui.statusline.inactive" = { fg = "surface2", bg = "mantle" }
+"ui.statusline.normal" = { fg = "base", bg = "rosewater", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "base", bg = "success", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base", bg = "info", modifiers = ["bold"] }
+"ui.popup" = { fg = "text", bg = "surface0" }
+"ui.window" = { fg = "crust" }
+"ui.help" = { fg = "overlay2", bg = "surface0" }
+"ui.bufferline" = { fg = "subtext0", bg = "mantle" }
+"ui.bufferline.active" = { fg = "info", bg = "base", underline = { color = "info", style = "line" } }
+"ui.bufferline.background" = { bg = "crust" }
+"ui.text" = "text"
+"ui.text.focus" = { fg = "text", bg = "surface0", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "overlay1" }
+"ui.text.directory" = { fg = "interactive" }
+"ui.virtual" = "overlay0"
+"ui.virtual.ruler" = { bg = "surface0" }
+"ui.virtual.indent-guide" = "surface0"
+"ui.virtual.inlay-hint" = { fg = "surface1", bg = "mantle" }
+"ui.virtual.jump-label" = { fg = "rosewater", modifiers = ["bold"] }
+"ui.selection" = { bg = "surface1" }
+"ui.cursor" = { fg = "base", bg = "secondary_cursor" }
+"ui.cursor.primary" = { fg = "base", bg = "primary" }
+"ui.cursor.match" = { fg = "primary", modifiers = ["bold"] }
+"ui.cursor.primary.normal" = { fg = "base", bg = "rosewater" }
+"ui.cursor.primary.insert" = { fg = "base", bg = "success" }
+"ui.cursor.primary.select" = { fg = "base", bg = "info" }
+"ui.cursor.normal" = { fg = "base", bg = "secondary_cursor_normal" }
+"ui.cursor.insert" = { fg = "base", bg = "secondary_cursor_insert" }
+"ui.cursor.select" = { fg = "base", bg = "secondary_cursor_select" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+"ui.highlight" = { bg = "surface1", modifiers = ["bold"] }
+"ui.menu" = { fg = "overlay2", bg = "surface0" }
+"ui.menu.selected" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
+
+# Diagnostics
+"diagnostic.error" = { underline = { color = "error", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "warning", style = "curl" } }
+"diagnostic.info" = { underline = { color = "constant", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "string", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+
+error = "error"
+warning = "warning"
+info = "sky"
+hint = "teal"
+
+[palette]
+# Backgrounds
+base = "#131010"
+mantle = "#151313"
+crust = "#1c1717"
+surface0 = "#191515"
+surface1 = "#252121"
+surface2 = "#2d2828"
+
+# Text (blended from alpha)
+text = "#b5b0b0"
+subtext1 = "#efeaea"
+subtext0 = "#706a6a"
+
+# Overlays
+overlay0 = "#4b4646"
+overlay1 = "#645f5f"
+overlay2 = "#716c6b"
+
+# Syntax
+string = "#00ceb9"
+primitive = "#ffba92"
+property = "#ff9ae2"
+type = "#ecf58c"
+constant = "#93e9f6"
+comment = "#706a6a"
+
+# Semantic
+primary = "#fab283"
+success = "#12c905"
+warning = "#fcd53a"
+error = "#fc533a"
+info = "#edb2f1"
+interactive = "#89b5ff"
+
+# Catppuccin-compatible
+rosewater = "#f1ecec"
+flamingo = "#ffba92"
+pink = "#ff9ae2"
+mauve = "#9d7cd8"
+red = "#fc533a"
+maroon = "#ff917b"
+peach = "#fab283"
+yellow = "#fcd53a"
+green = "#12c905"
+teal = "#00ceb9"
+sky = "#93e9f6"
+sapphire = "#56b6c2"
+blue = "#89b5ff"
+lavender = "#edb2f1"
+
+# Cursor states
+cursorline = "#1c1717"
+secondary_cursor = "#706a6a"
+secondary_cursor_normal = "#706a6a"
+secondary_cursor_insert = "#267f20"
+secondary_cursor_select = "#878ec0"
