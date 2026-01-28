@@ -1,5 +1,5 @@
 [editor]
-theme = "catppuccin_latte"
+theme = "catppuccin_macchiato"
 mouse = true
 cursorline = false
 cursorlineopt = "number"  # highlight both number and

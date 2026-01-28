@@ -1,0 +1,61 @@
+{
+  "nodes": {
+    "autoconf-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767645295,
+        "narHash": "sha256-pSvlKWjeGV+Ab16/rzjH/L35r+EZb4c5iNj5cu8RKyk=",
+        "owner": "nexo-tech",
+        "repo": "autoconf.nvim",
+        "rev": "b2b23bb0d2a4a989f3c62bed5f873f4294d82c7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nexo-tech",
+        "repo": "autoconf.nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1767379071,
+        "narHash": "sha256-EgE0pxsrW9jp9YFMkHL9JMXxcqi/OoumPJYwf+Okucw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fb7944c166a3b630f177938e478f0378e64ce108",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "autoconf-nvim": "autoconf-nvim",
+        "nixpkgs": "nixpkgs",
+        "themekit-nvim": "themekit-nvim"
+      }
+    },
+    "themekit-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767354909,
+        "narHash": "sha256-86LhlWz7Cdr9clUYKm56wpRZdQifEcnyXL9Z822CzyA=",
+        "owner": "nexo-tech",
+        "repo": "themekit.nvim",
+        "rev": "adf62afc156233ae96116c2ae82e3ef22009a8a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nexo-tech",
+        "repo": "themekit.nvim",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
