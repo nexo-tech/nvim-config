@@ -77,7 +77,7 @@
               (if cfg.themeMode == "light" then
                 "catppuccin_latte"
               else
-                "catppuccin_macchiato")
+                "opencode_oc1_dark")
             else
               cfg.theme;
           in {
