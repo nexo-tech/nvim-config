@@ -57,9 +57,30 @@
               default = "catppuccin_macchiato";
               description = "Default theme to use";
             };
+
+            themeMode = lib.mkOption {
+              type = lib.types.nullOr (lib.types.enum [ "light" "dark" ]);
+              default = null;
+              description = ''
+                Theme mode (light or dark). When set, automatically selects
+                the appropriate theme variant. For example, with catppuccin:
+                - "light" selects catppuccin_latte
+                - "dark" selects catppuccin_macchiato
+                This overrides the theme option if both are set.
+              '';
+            };
           };
 
-          config = lib.mkIf cfg.enable {
+          config = lib.mkIf cfg.enable (let
+            # Determine effective theme based on themeMode
+            effectiveTheme = if cfg.themeMode != null then
+              (if cfg.themeMode == "light" then
+                "catppuccin_latte"
+              else
+                "catppuccin_macchiato")
+            else
+              cfg.theme;
+          in {
             programs.neovim = {
               enable = true;
               package = cfg.package;
@@ -83,7 +104,7 @@
               "nvim/config.toml".text = let
                 originalConfig = builtins.readFile ./config.toml;
 
-                themeLine = ''theme = "${cfg.theme}"'';
+                themeLine = ''theme = "${effectiveTheme}"'';
 
                 replaceEditorTheme = contents:
                   let
@@ -95,7 +116,7 @@
                         leavingEditor = inEditor && (lib.hasPrefix "[" line)
                           && (line != "[editor]");
                         shouldReplace = inEditor && (!leavingEditor)
-                          && (builtins.match ''^theme\s*=\s*".*"$'' line
+                          && (builtins.match ''^theme[ 	]*=[ 	]*".*"$'' line
                             != null);
 
                         nextLines = state.lines
@@ -140,7 +161,7 @@
               # Plugin: themekit.nvim
               "nvim/pack/plugins/start/themekit.nvim".source = themekit-nvim;
             };
-          };
+          });
         };
 
       # Convenience alias
