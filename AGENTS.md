@@ -13,6 +13,15 @@ This project spans four independent git repositories:
 | **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github-personal:nexo-tech/themekit.nvim` | `dev` |
 | **nixos-config** | `nixos-config/` | `git@github-personal:oleghq/nixos-config.git` | `main` |
 
+### Flake
+
+The nvim-config root has a `flake.nix` that pins `autoconf-nvim` and `themekit-nvim` as flake inputs. After pushing changes to either plugin, run `nix flake update` from the nvim-config root to update `flake.lock` with the latest commits.
+
+```sh
+cd ~/.config/nvim
+nix flake update
+```
+
 ### Commit and Push Rules
 
 - `autoconf.nvim` and `themekit.nvim` live as independent git repos inside `pack/plugins/start/`. The `pack/` directory is gitignored by nvim-config, so each plugin has its own git history.
