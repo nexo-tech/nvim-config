@@ -21,14 +21,6 @@
         [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      # Configuration files from this repo
-      configFiles = {
-        "init.lua" = ./init.lua;
-        "config.toml" = ./config.toml;
-        "languages.toml" = ./languages.toml;
-      };
-
-      # Theme files directory
       themesDir = ./themes;
     in {
       # Home Manager module
@@ -84,12 +76,6 @@
             programs.neovim = {
               enable = true;
               package = cfg.package;
-
-              # Ensure Neovim can find our plugins and config
-              extraPackages = with pkgs;
-                [
-                  # Add any runtime dependencies here
-                ];
             };
 
             # Create the nvim configuration directory structure
@@ -100,55 +86,15 @@
                 ${cfg.extraConfig}
               '';
 
-              # TOML configuration files
               "nvim/config.toml".text = let
                 originalConfig = builtins.readFile ./config.toml;
-
                 themeLine = ''theme = "${effectiveTheme}"'';
-
-                replaceEditorTheme = contents:
-                  let
-                    lines = lib.splitString "\n" contents;
-
-                    step = state: line:
-                      let
-                        inEditor = state.inEditor || (line == "[editor]");
-                        leavingEditor = inEditor && (lib.hasPrefix "[" line)
-                          && (line != "[editor]");
-                        shouldReplace = inEditor && (!leavingEditor)
-                          && (builtins.match ''^theme[ 	]*=[ 	]*".*"$'' line
-                            != null);
-
-                        nextLines = state.lines
-                          ++ [ (if shouldReplace then themeLine else line) ];
-                      in {
-                        lines = nextLines;
-                        inEditor = inEditor && !leavingEditor;
-                        replaced = state.replaced || shouldReplace;
-                      };
-
-                    result = builtins.foldl' step {
-                      lines = [ ];
-                      inEditor = false;
-                      replaced = false;
-                    } lines;
-
-                    insertIfMissing = ls:
-                      let
-                        idx =
-                          lib.lists.findFirstIndex (x: x == "[editor]") null ls;
-                      in if idx == null then
-                        ls
-                      else
-                        (lib.take (idx + 1) ls) ++ [ themeLine ]
-                        ++ (lib.drop (idx + 1) ls);
-
-                    finalLines = if result.replaced then
-                      result.lines
-                    else
-                      insertIfMissing result.lines;
-                  in lib.concatStringsSep "\n" finalLines;
-              in replaceEditorTheme originalConfig;
+                lines = lib.splitString "\n" originalConfig;
+                replaceLine = line:
+                  if builtins.match ''^theme[ 	]*=[ 	]*".*"$'' line != null
+                  then themeLine
+                  else line;
+              in lib.concatStringsSep "\n" (map replaceLine lines);
 
               "nvim/languages.toml".source = ./languages.toml;
 

@@ -2,4 +2,5 @@ pack
 .DS_Store
 */**/.DS_Store
 nixos-config
+.claude/skills
 
