@@ -3,11 +3,11 @@
     "autoconf-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1773479777,
-        "narHash": "sha256-Vlek/+mjxRJcIRXdXyRXokCfFCRSIr5nALbSvvd3OD8=",
+        "lastModified": 1773483149,
+        "narHash": "sha256-YYgiVMqyRLY7xHO51DeRZ5eJAPbMxTrkLdw4oC2oKKc=",
         "owner": "OlegHQ",
         "repo": "autoconf.nvim",
-        "rev": "a72d776981e25f3a6f84b49b7d442415e5e7714f",
+        "rev": "227e40264dc516177911c4ce21f10d117d5b0ddf",
         "type": "github"
       },
       "original": {

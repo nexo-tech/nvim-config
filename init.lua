@@ -1,8 +1,7 @@
 local autoconf = require("autoconf")
-local themekit = require("themekit")
 
 autoconf.define_resolver("editor.theme", {
-    resolver = function(name) return themekit.apply(name) end,
+    resolver = function(name) return require("themekit").apply(name) end,
     lifecycle = autoconf.Lifecycle.LATE,
 })
 autoconf.define_command_resolver("open_theme_picker",
