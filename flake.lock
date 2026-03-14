@@ -5,13 +5,13 @@
       "locked": {
         "lastModified": 1773479777,
         "narHash": "sha256-Vlek/+mjxRJcIRXdXyRXokCfFCRSIr5nALbSvvd3OD8=",
-        "owner": "nexo-tech",
+        "owner": "OlegHQ",
         "repo": "autoconf.nvim",
         "rev": "a72d776981e25f3a6f84b49b7d442415e5e7714f",
         "type": "github"
       },
       "original": {
-        "owner": "nexo-tech",
+        "owner": "OlegHQ",
         "repo": "autoconf.nvim",
         "type": "github"
       }
@@ -44,13 +44,13 @@
       "locked": {
         "lastModified": 1773479782,
         "narHash": "sha256-spowh05b91ztrbwabnOqy1VzABkXoNtwIrs9hApoRuQ=",
-        "owner": "nexo-tech",
+        "owner": "OlegHQ",
         "repo": "themekit.nvim",
         "rev": "1606b440ef5e41d4d1053d682c88cbc61a7cce38",
         "type": "github"
       },
       "original": {
-        "owner": "nexo-tech",
+        "owner": "OlegHQ",
         "repo": "themekit.nvim",
         "type": "github"
       }

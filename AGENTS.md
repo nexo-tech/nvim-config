@@ -8,10 +8,10 @@ This project spans four independent git repositories:
 
 | Repository | Path | Remote | Branch |
 |---|---|---|---|
-| **nvim-config** | `.` (root) | `git@github.com:nexo-tech/nvim-config.git` | `dev` |
-| **autoconf.nvim** | `pack/plugins/start/autoconf.nvim` | `git@github-personal:nexo-tech/autoconf.nvim` | `dev` |
-| **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github-personal:nexo-tech/themekit.nvim` | `dev` |
-| **nixos-config** | `nixos-config/` | `git@github-personal:oleghq/nixos-config.git` | `main` |
+| **nvim-config** | `.` (root) | `git@github.com:OlegHQ/nvim-config.git` | `dev` |
+| **autoconf.nvim** | `pack/plugins/start/autoconf.nvim` | `git@github-personal:OlegHQ/autoconf.nvim` | `dev` |
+| **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github-personal:OlegHQ/themekit.nvim` | `dev` |
+| **nixos-config** | `nixos-config/` | `git@github-personal:OlegHQ/nixos-config.git` | `main` |
 
 ### Flake
 
@@ -118,3 +118,4 @@ To add, remove, or update a plugin, edit that Nix file and run `make switch` fro
 4. **Plugin commits go to plugin repos**: When editing `autoconf.nvim` or `themekit.nvim`, always commit and push from within `pack/plugins/start/<plugin>/` — never from the root config repo.
 5. **Nix plugin changes go to `nixos-config/home/default.nix`**: When adding/removing third-party plugins, edit the Nix plugin list — not the Neovim config directory.
 6. **Optimize everything**: Every change — whether to config, themes, or plugins — must prioritize performance. Avoid unnecessary work, prefer lazy patterns, and keep the startup path minimal.
+

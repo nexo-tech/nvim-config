@@ -35,15 +35,15 @@ A simple Neovim configuration demonstrating the power of `autoconf.nvim` and `th
 - **Neovim 0.9.0+** (latest stable recommended)
 - **Git** for installation
 - **Node.js** (for LSP servers)
-- [autoconf.nvim](https://github.com/nexo-tech/autoconf.nvim)
-- [themekit.nvim](https://github.com/nexo-tech/themekit.nvim)
+- [autoconf.nvim](https://github.com/OlegHQ/autoconf.nvim)
+- [themekit.nvim](https://github.com/OlegHQ/themekit.nvim)
 
 ### Installation
 
 1. **Clone the configuration**:
 
    ```bash
-   git clone https://github.com/nexo-tech/nvim-config.git ~/.config/nvim
+   git clone https://github.com/OlegHQ/nvim-config.git ~/.config/nvim
    cd ~/.config/nvim
    ```
 
@@ -79,7 +79,7 @@ This configuration is available as a Nix flake with a Home Manager module. It au
        home-manager.url = "github:nix-community/home-manager";
 
        nvimconf = {
-         url = "github:nexo-tech/nvim-config";
+         url = "github:OlegHQ/nvim-config";
          inputs.nixpkgs.follows = "nixpkgs";
        };
      };
@@ -340,6 +340,7 @@ Individual themes may have their own licenses. Check the `themes/licenses/` dire
 
 **Made with ❤️ for the Neovim community**
 
-[⭐ Star this repo](https://github.com/nexo-tech/nvim-config) | [🐛 Report issues](https://github.com/nexo-tech/nvim-config/issues) | [💬 Discuss](https://github.com/nexo-tech/nvim-config/discussions)
+[⭐ Star this repo](https://github.com/OlegHQ/nvim-config) | [🐛 Report issues](https://github.com/OlegHQ/nvim-config/issues) | [💬 Discuss](https://github.com/OlegHQ/nvim-config/discussions)
 
 </div>
+

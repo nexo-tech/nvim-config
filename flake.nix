@@ -5,12 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     autoconf-nvim = {
-      url = "github:nexo-tech/autoconf.nvim";
+      url = "github:OlegHQ/autoconf.nvim";
       flake = false;
     };
 
     themekit-nvim = {
-      url = "github:nexo-tech/themekit.nvim";
+      url = "github:OlegHQ/themekit.nvim";
       flake = false;
     };
   };
@@ -214,3 +214,4 @@
         });
     };
 }
+
