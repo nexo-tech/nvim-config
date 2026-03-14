@@ -3,11 +3,11 @@
     "autoconf-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1773483149,
-        "narHash": "sha256-YYgiVMqyRLY7xHO51DeRZ5eJAPbMxTrkLdw4oC2oKKc=",
+        "lastModified": 1773517373,
+        "narHash": "sha256-p/ugEH6TyC0RVKxsCUzvzs8n59fIcbh77jTMIA0ricA=",
         "owner": "OlegHQ",
         "repo": "autoconf.nvim",
-        "rev": "227e40264dc516177911c4ce21f10d117d5b0ddf",
+        "rev": "549ee0cf0d45e6220c65ed2e4a68e74c4b1929f4",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1773282481,
-        "narHash": "sha256-b/GV2ysM8mKHhinse2wz+uP37epUrSE+sAKXy/xvBY4=",
+        "lastModified": 1773389992,
+        "narHash": "sha256-wvfdLLWJ2I9oEpDd9PfMA8osfIZicoQ5MT1jIwNs9Tk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fe416aaedd397cacb33a610b33d60ff2b431b127",
+        "rev": "c06b4ae3d6599a672a6210b7021d699c351eebda",
         "type": "github"
       },
       "original": {

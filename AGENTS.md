@@ -110,6 +110,16 @@ Third-party Neovim plugins are installed via NixOS/nix-darwin, **not** by a Neov
 
 To add, remove, or update a plugin, edit that Nix file and run `make switch` from `nixos-config/`. Do **not** manually place plugin directories in `pack/` for Nix-managed plugins — only `autoconf.nvim` and `themekit.nvim` live there as custom plugins.
 
+## Performance Regression Prevention
+
+Before and after any change that touches plugin loading, autocommands, or `init.lua`:
+
+1. **Measure startup**: Run `nvim --headless --startuptime /tmp/startup.log -c 'quit'` and check the final `--- NVIM STARTED ---` line.
+2. **Baseline**: Startup must stay under **150ms** (current baseline ~134ms). If a change adds more than 10ms, investigate and optimize.
+3. **No eager loading**: Completion, formatting, and heavy plugins must be deferred (InsertEnter, vim.schedule, or similar). Never `require()` them at the top level of `init.lua` or resolver modules.
+4. **No new autocommands on `*`**: Prefer scoped events (`FileType`, `LspAttach`, `InsertEnter`) over global `BufEnter` / `BufRead` patterns.
+5. **Profile after changes**: Review `/tmp/startup.log` for any new module that takes >5ms. If found, defer it or lazy-load it.
+
 ## Rules for Agents
 
 1. **Prioritize TOML**: When asked to change a setting, check if it can be done in `config.toml` or `languages.toml` first.
