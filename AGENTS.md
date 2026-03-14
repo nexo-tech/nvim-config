@@ -2,22 +2,27 @@
 
 This repository hosts a modular Neovim configuration built around two custom plugins: `autoconf.nvim` and `themekit.nvim`. It is designed to be easily configurable via TOML files, similar to the Helix editor. **Performance is the top priority** — every change must be optimized for fast startup and runtime responsiveness.
 
-## Updating Plugins
+## Repositories
 
-`autoconf.nvim` and `themekit.nvim` live as independent git repositories inside `pack/plugins/start/`. The `pack/` directory is gitignored by this config repo, so each plugin has its own git history and remote.
+This project spans four independent git repositories:
 
-- **`pack/plugins/start/autoconf.nvim`** — remote: `git@github-personal:nexo-tech/autoconf.nvim`
-- **`pack/plugins/start/themekit.nvim`** — remote: `git@github-personal:nexo-tech/themekit.nvim`
+| Repository | Path | Remote | Branch |
+|---|---|---|---|
+| **nvim-config** | `.` (root) | `git@github.com:nexo-tech/nvim-config.git` | `dev` |
+| **autoconf.nvim** | `pack/plugins/start/autoconf.nvim` | `git@github-personal:nexo-tech/autoconf.nvim` | `dev` |
+| **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github-personal:nexo-tech/themekit.nvim` | `dev` |
+| **nixos-config** | `nixos-config/` | `git@github-personal:oleghq/nixos-config.git` | `main` |
 
-When modifying these plugins:
+### Commit and Push Rules
 
-1. Edit files directly under `pack/plugins/start/<plugin>/`.
-2. **Commit and push from within the plugin directory**, not the parent config repo. For example:
-   ```sh
-   cd pack/plugins/start/autoconf.nvim
-   git add -A && git commit -m "your message" && git push
-   ```
-3. The parent nvim-config repo does **not** track plugin contents — do not attempt to commit plugin changes from the root repo.
+- `autoconf.nvim` and `themekit.nvim` live as independent git repos inside `pack/plugins/start/`. The `pack/` directory is gitignored by nvim-config, so each plugin has its own git history.
+- `nixos-config/` is also a separate git repo (gitignored by nvim-config).
+- **Always commit and push from within the plugin/config directory**, not from the root:
+  ```sh
+  cd pack/plugins/start/autoconf.nvim
+  git add -A && git commit -m "your message" && git push
+  ```
+- The parent nvim-config repo does **not** track plugin or nixos-config contents — do not attempt to commit their changes from the root repo.
 
 ## Performance
 
