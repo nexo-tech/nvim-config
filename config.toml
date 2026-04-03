@@ -12,6 +12,13 @@ normal = "block"
 insert = "block"
 select = "block"
 
+# mini.files (Miller columns): Space o / Space O — see autoconf defaults.
+# [editor.mini-files.windows]
+# preview = true
+# [editor.mini-files.options]
+# use_as_default_explorer = true
+# permanent_delete = false
+
 [keys.normal.space]
 t = "open_theme_picker"
 
