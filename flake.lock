@@ -42,11 +42,11 @@
     "themekit-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1773479782,
-        "narHash": "sha256-spowh05b91ztrbwabnOqy1VzABkXoNtwIrs9hApoRuQ=",
+        "lastModified": 1777464016,
+        "narHash": "sha256-zLI296bXeLI+J6j1mz6uDRFBs97sMwhzQf2280LbIXE=",
         "owner": "OlegHQ",
         "repo": "themekit.nvim",
-        "rev": "1606b440ef5e41d4d1053d682c88cbc61a7cce38",
+        "rev": "d023de449b4d906154975b3d180cfff70f75ba3c",
         "type": "github"
       },
       "original": {
