@@ -50,9 +50,3 @@ formatter = ["goimports", "gofmt"]
 name = "rust"
 lsp = "rust_analyzer"
 formatter = "rustfmt"
-
-[[language]]
-name = "fsharp"
-lsp = { server = "fsautocomplete", cmd = ["fsautocomplete", "--background-service-enabled"] }
-formatter = "fantomas"
-
