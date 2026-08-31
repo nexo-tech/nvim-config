@@ -9,8 +9,8 @@ This project spans four independent git repositories:
 | Repository | Path | Remote | Branch |
 |---|---|---|---|
 | **nvim-config** | `.` (root) | `git@github.com:OlegHQ/nvim-config.git` | `dev` |
-| **autoconf.nvim** | `pack/plugins/start/autoconf.nvim` | `git@github-personal:OlegHQ/autoconf.nvim` | `dev` |
-| **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github-personal:OlegHQ/themekit.nvim` | `dev` |
+| **autoconf.nvim** | `pack/plugins/start/autoconf.nvim` | `git@github.com:OlegHQ/autoconf.nvim` | `dev` |
+| **themekit.nvim** | `pack/plugins/start/themekit.nvim` | `git@github.com:OlegHQ/themekit.nvim` | `dev` |
 | **nixos-config** | `nixos-config/` | `git@github-personal:OlegHQ/nixos-config.git` | `main` |
 
 ### Flake
@@ -24,14 +24,23 @@ nix flake update
 
 ### Commit and Push Rules
 
-- `autoconf.nvim` and `themekit.nvim` live as independent git repos inside `pack/plugins/start/`. The `pack/` directory is gitignored by nvim-config, so each plugin has its own git history.
+- `autoconf.nvim` and `themekit.nvim` are git submodules under `pack/plugins/start/`. Each plugin keeps its own git history, while nvim-config tracks the exact plugin commit as a gitlink.
+- Clone nvim-config with `git clone --recurse-submodules`, or initialize an existing checkout with `git submodule update --init --recursive`.
+- Submodule URLs must use the `git@github.com:OlegHQ/<plugin>.git` SSH form. Both plugin submodules track the `dev` branch in `.gitmodules`.
 - `nixos-config/` is also a separate git repo (gitignored by nvim-config).
-- **Always commit and push from within the plugin/config directory**, not from the root:
+- **Always commit and push plugin code from within the plugin directory**, not from the root:
   ```sh
   cd pack/plugins/start/autoconf.nvim
   git add -A && git commit -m "your message" && git push
   ```
-- The parent nvim-config repo does **not** track plugin or nixos-config contents — do not attempt to commit their changes from the root repo.
+- After pushing a plugin commit, return to the nvim-config root, stage the changed submodule path, and commit and push the updated gitlink:
+  ```sh
+  cd ~/.config/nvim
+  git add pack/plugins/start/autoconf.nvim
+  git commit -m "chore: update autoconf.nvim submodule"
+  git push
+  ```
+- The parent nvim-config repo tracks plugin commit pointers, not plugin file contents. It does not track `nixos-config/` contents.
 
 ## Performance
 
@@ -125,7 +134,6 @@ Before and after any change that touches plugin loading, autocommands, or `init.
 1. **Prioritize TOML**: When asked to change a setting, check if it can be done in `config.toml` or `languages.toml` first.
 2. **Theme Files**: Create new files in `themes/` for new themes. Do not hardcode theme colors in Lua.
 3. **Respect Structure**: Maintain the separation between configuration data (TOML) and logic (Lua plugins).
-4. **Plugin commits go to plugin repos**: When editing `autoconf.nvim` or `themekit.nvim`, always commit and push from within `pack/plugins/start/<plugin>/` — never from the root config repo.
+4. **Respect submodule boundaries**: Commit and push plugin code from within `pack/plugins/start/<plugin>/`, then commit the updated submodule gitlink from the nvim-config root. Never commit plugin file contents directly from the root repo.
 5. **Nix plugin changes go to `nixos-config/home/default.nix`**: When adding/removing third-party plugins, edit the Nix plugin list — not the Neovim config directory.
 6. **Optimize everything**: Every change — whether to config, themes, or plugins — must prioritize performance. Avoid unnecessary work, prefer lazy patterns, and keep the startup path minimal.
-

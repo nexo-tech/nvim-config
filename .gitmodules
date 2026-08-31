@@ -1,0 +1,8 @@
+[submodule "pack/plugins/start/autoconf.nvim"]
+	path = pack/plugins/start/autoconf.nvim
+	url = git@github.com:OlegHQ/autoconf.nvim
+	branch = dev
+[submodule "pack/plugins/start/themekit.nvim"]
+	path = pack/plugins/start/themekit.nvim
+	url = git@github.com:OlegHQ/themekit.nvim
+	branch = dev
