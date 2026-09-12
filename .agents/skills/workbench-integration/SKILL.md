@@ -13,4 +13,6 @@ Autoconf owns editor feature lifecycle and TOML translation. Workbench owns its 
 
 The current planning-only plugin must not be mistaken for an installed feature. Runtime input/wiring is WB-25 after its prerequisites. Verify false settings, mapping precedence, saved-state compatibility, startup/first-use performance and disabling cleanup. Do not silently add nested key namespaces before checking autoconf's key parser supports them.
 
+Run all checks locally. Do not add GitHub Actions or other hosted CI. Host acceptance requires local end-to-end tests through real Neovim input and rendered windows, with real providers where applicable. Keep reproducible local logs and evidence; unit tests alone cannot establish a working editor workflow.
+
 When publication is within the active request, publish plugin commits first, update parent gitlinks and relevant runtime lock inputs second, and verify exact revision consistency. Avoid broad `make sync`. If the Nix checkout is absent, complete independent work and identify the blocked host gate; do not fabricate activation evidence. Gates require proof, not repeated permission for already authorized work.
