@@ -2,6 +2,10 @@
 
 A simple Neovim configuration demonstrating the power of `autoconf.nvim` and `themekit.nvim` plugins.
 
+## Workbench Development
+
+The planned workspace subsystem lives in [workbench.nvim](https://github.com/OlegHQ/workbench.nvim), checked out at `pack/plugins/start/workbench.nvim`. Start with its [implementation plan](https://github.com/OlegHQ/workbench.nvim/blob/dev/docs/PLAN.md) for research, architecture contracts, task dependencies and completion gates. The current revision is planning-only and does not enable a sidebar or change editor behavior.
+
 ![Neovim](https://img.shields.io/badge/Neovim-0.9.0+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
@@ -343,4 +347,3 @@ Individual themes may have their own licenses. Check the `themes/licenses/` dire
 [⭐ Star this repo](https://github.com/OlegHQ/nvim-config) | [🐛 Report issues](https://github.com/OlegHQ/nvim-config/issues) | [💬 Discuss](https://github.com/OlegHQ/nvim-config/discussions)
 
 </div>
-

@@ -6,3 +6,7 @@
 	path = pack/plugins/start/themekit.nvim
 	url = git@github.com:OlegHQ/themekit.nvim
 	branch = dev
+[submodule "pack/plugins/start/workbench.nvim"]
+	path = pack/plugins/start/workbench.nvim
+	url = git@github.com:OlegHQ/workbench.nvim.git
+	branch = dev
